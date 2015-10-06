@@ -39,7 +39,9 @@ static JTextField addressTestField;
        }
         if(addressTestField.getText().equals("namdeo"))
        {
+           System.out.println("hi");
            return "3bhk"+"";
+           
        }
         else if(addressTestField.getText().equals("manu")||addressTestField.getText().equals("deepak")||addressTestField.getText().equals("praveen"))
         {
