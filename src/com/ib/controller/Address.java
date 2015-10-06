@@ -7,8 +7,7 @@ package com.ib.controller;
 
 import com.ib.model.PersonAddress;
 import java.awt.TextField;
-import javax.swing.JTextField;
-
+import javax.swing.*;
 /**
  *
  * @author IB
