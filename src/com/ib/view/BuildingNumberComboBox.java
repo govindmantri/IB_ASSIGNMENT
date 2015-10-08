@@ -10,6 +10,7 @@ import com.ib.controller.PeopleInBuilding;
 import com.ib.controller.Address;
 import com.ib.model.BuildingNumber;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -298,9 +299,7 @@ if(name.equals("namdeo")&&selectedItem.toString().equals("101"))
     }//GEN-LAST:event_showActionPerformed
 
     private void listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listMouseClicked
-     Object selectedValue = list.getSelectedValue();
-        System.out.println(selectedValue);
-        personNmaeTextField.setText(selectedValue.toString());
+
     }//GEN-LAST:event_listMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
