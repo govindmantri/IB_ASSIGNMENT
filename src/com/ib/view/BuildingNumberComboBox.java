@@ -6,9 +6,6 @@
 package com.ib.view;
 
 import com.ib.controller.BuildingNumberCombo;
-import com.ib.controller.PeopleInBuilding;
-import com.ib.controller.Address;
-import com.ib.model.BuildingNumber;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,39 +17,46 @@ import java.util.Vector;
  */
 public class BuildingNumberComboBox extends javax.swing.JFrame {
  Object selectedItem;
- Address address;
+ 
     /**
      * Creates new form BuildingNumberComboBox
      */
     public BuildingNumberComboBox() {
         initComponents();
+         Street s1=new Street(1,"Margao");
+    Street s2=new Street(2,"Panaji");
+    
+    Building b1= new Building(1,"Shiv towers",s1);
+    Building b2= new Building(2,"leandra Complex",s1);
+    Building b3= new Building(3,"Sandra residency",s2);
+    
+    Flat flat1 =new Flat(1,10,"A1","1bhk",b1);
+    Flat flat2 =new Flat(2,20,"A2","2bhk",b1);
+    Flat flat3 =new Flat(3,10,"A3","1bhk",b1);
+    Flat flat4 =new Flat(4,30,"B1","1bhk",b2);
+    Flat flat5 =new Flat(5,10,"B2","1bhk",b2);
+    Flat flat6 =new Flat(6,30,"A1","3bhk",b1);
+         Person person1= new Person("carol","owner",1, flat1);
+    Person person2= new Person("candy","owner",2, flat2);
+    Person person3= new Person("tina","tenant",3, flat3);
+    Person person4= new Person("mina","tenant",4, flat1);
+    Person person5= new Person("dina","tenant",5, flat2);
+    Person person6= new Person("carol","owner",6, flat5);
+    Person person7= new Person("carol","owner",6, flat6);
+    
+    ArrayList<Person> persons= new ArrayList<Person>();
+    persons.add(person1);
+    persons.add(person2);
+    persons.add(person3);
+    persons.add(person4); 
+    persons.add(person5);
+    persons.add(person6);
           addressLabel.setVisible(false);
-
-        BuildingNumber buildingNumber100=new BuildingNumber("100");
-        BuildingNumber buildingNumber101=new BuildingNumber("101");
-        BuildingNumber buildingNumber200=new BuildingNumber("200");
-        BuildingNumber buildingNumber300=new BuildingNumber("300");
-        BuildingNumber buildingNumber305=new BuildingNumber("305");
-        BuildingNumber buildingNumber306=new BuildingNumber("306");
-        BuildingNumber buildingNumber309=new BuildingNumber("309");
-        BuildingNumber buildingNumber400=new BuildingNumber("400");
-        BuildingNumber buildingNumber500=new BuildingNumber("500");
+          ListModel m=new ListModel(persons);
+list.setModel(m);
+       
        //collect all object in vector and pass in model class in one shot
-        Vector buildingNumberVector=new Vector();
-        
-        buildingNumberVector.add(buildingNumber100);
-        buildingNumberVector.add(buildingNumber101);
-        buildingNumberVector.add(buildingNumber200);
-        buildingNumberVector.add(buildingNumber300);
-        buildingNumberVector.add(buildingNumber305);
-        buildingNumberVector.add(buildingNumber306);
-        buildingNumberVector.add(buildingNumber309);
-        buildingNumberVector.add(buildingNumber400);
-        buildingNumberVector.add(buildingNumber500);
-        BuildingNumberCombo buildingNum=new BuildingNumberCombo(buildingNumberVector);
-        
-        //making connection betwwen view and model
-        jComboBox1.setModel(buildingNum);
+      
        
     }
 
@@ -273,27 +277,12 @@ public class BuildingNumberComboBox extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         
-        selectedItem = jComboBox1.getSelectedItem();
-        PeopleInBuilding.peopleName((BuildingNumber) selectedItem,list);
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
- address=new Address(personNmaeTextField);
-        String name=personNmaeTextField.getText();
-if(name.equals("govind mantri")&&selectedItem.toString().equals("100"))
-{
-   addressLabel.setText("Name- :"+"---- : "+name+"----"+"building Number= :"+selectedItem+"--"+"flat number :"+address.flatNumber()+"flat type :"+address.flatType()+"---->"+address.OwnerOrTenants());
  
-   addressLabel.setVisible(true);
-}
-if(name.equals("namdeo")&&selectedItem.toString().equals("101"))
-{
-    addressLabel.setText("");
-    System.out.println(address.flatType());
-   addressLabel.setText("Name- :"+"---- : "+name+"----"+"building Number= :"+selectedItem+"--"+"flat number :"+address.flatNumber()+"flat type :"+address.flatType()+"---->"+address.OwnerOrTenants());
-   addressLabel.setVisible(true);
-}
+
        
     
     }//GEN-LAST:event_showActionPerformed
@@ -303,45 +292,7 @@ if(name.equals("namdeo")&&selectedItem.toString().equals("101"))
     }//GEN-LAST:event_listMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     Object selectedItem1 = jComboBox1.getSelectedItem();
-     if(selectedItem1.toString().equals("100"))
-     {
-         
-         total2bhkFlatTextField.setText("10");
-         total3bhkFlatTextFiled.setText("5");
-        float sold2bhk= list.getModel().getSize();
-         soldFlatTextField.setText(sold2bhk+"");
-          String twob= total2bhkFlatTextField.getText();
-      
-       
-       int total=Integer.parseInt(twob);
-       float avgSold=(float)(sold2bhk/total)*100;
-        
-         System.out.println(sold2bhk);
-         System.out.println(avgSold);
-        Sold3bhkFlatTextField.setText(avgSold+"");
-         soldFlatTextField.setText(avgSold+"");
-          float remeningFlat=100-avgSold;
-         remening2bTextField.setText(""+remeningFlat);
-         remening3BTextField.setText(""+remeningFlat);
-         
-     } if(selectedItem1.toString().equals("101"))
-     {
-         total2bhkFlatTextField.setText("15");
-         total3bhkFlatTextFiled.setText("7");
-        float sold3bhk= list.getModel().getSize();
-       String twob= total2bhkFlatTextField.getText();
-       int total=Integer.parseInt(twob);
-       float avgSold=(float)(sold3bhk/total)*100;
-        
-         System.out.println(sold3bhk);
-         System.out.println(avgSold);
-        Sold3bhkFlatTextField.setText(avgSold+"");
-         soldFlatTextField.setText(avgSold+"");
-         float remeningFlat=100-avgSold;
-         remening2bTextField.setText(""+remeningFlat);
-         remening3BTextField.setText(""+remeningFlat);
-     }
+   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void total3bhkFlatTextFiledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total3bhkFlatTextFiledActionPerformed
