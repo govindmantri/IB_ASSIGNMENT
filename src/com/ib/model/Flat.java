@@ -3,10 +3,12 @@ package com.ib.model;
 import com.ib.model.Building;
 
 public class Flat {
+
     private int area;
     private String flatName;
     private String type;
     private Building build;
+
     public Flat(int area, String flatName, String type, Building build) {
         this.area = area;
         this.flatName = flatName;
@@ -18,7 +20,7 @@ public class Flat {
     public String toString() {
         return flatName + build.toString();
     }
-   
+
     public int getArea() {
         return area;
     }
@@ -41,6 +43,7 @@ public class Flat {
 
     private void setType(String type) {
         this.type = type;
+        System.out.println("hello");
     }
 
     private Building getBuild() {

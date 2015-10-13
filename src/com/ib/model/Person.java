@@ -1,8 +1,10 @@
 package com.ib.model;
+
 import com.ib.model.Flat;
 import java.util.ArrayList;
 
 public class Person {
+
     private Flat flat;
     private String personName;
     private String type;
@@ -29,6 +31,7 @@ public class Person {
     public void setType(String type) {
         this.type = type;
     }
+
     public Flat getFlat() {
         return flat;
     }
