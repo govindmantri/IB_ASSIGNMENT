@@ -5,7 +5,7 @@
  */
 package ib_assignment1;
 
-import com.ib.view.BuildingNumberComboBox;
+import com.ib.view.MainFrameForm;
 
 /**
  *
@@ -17,9 +17,7 @@ public class IB_Assignment1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         new BuildingNumberComboBox().setVisible(true);
-         System.out.println("kjhkjxnvjkjxkc");
-        // TODO code application logic here
+         new MainFrameForm().setVisible(true);
     }
     
 }

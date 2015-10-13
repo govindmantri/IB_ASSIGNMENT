@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ib.view;
+package com.ib.model;
 
+import com.ib.controller.*;
 import java.util.ArrayList;
 import javax.swing.event.ListDataListener;
 
@@ -12,31 +13,32 @@ import javax.swing.event.ListDataListener;
  *
  * @author IB
  */
-public class ListModel implements javax.swing.ListModel{
-    ArrayList< Person> persons;
+public class MyListModel implements javax.swing.ListModel {
 
-    ListModel(ArrayList<Person> persons) {
-        this.persons=persons; //To change body of generated methods, choose Tools | Templates.
+   private ArrayList< Person> persons;
+
+    public MyListModel(ArrayList<Person> persons) {
+        this.persons = persons; 
     }
 
     @Override
     public int getSize() {
-     return persons.size();
+        return persons.size();
     }
 
     @Override
     public Object getElementAt(int index) {
-       return persons.get(index);
-        
+        return persons.get(index);
+
     }
 
     @Override
     public void addListDataListener(ListDataListener l) {
-        
+
     }
 
     @Override
     public void removeListDataListener(ListDataListener l) {
     }
-    
+
 }
